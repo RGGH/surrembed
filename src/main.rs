@@ -3,7 +3,6 @@ use surrealdb::engine::local::RocksDb;
 use surrealdb::sql::Thing;
 use surrealdb::Surreal;
 use controller::*;
-use clap::Parser;
 
 #[derive(Debug, Serialize)]
 struct Name<'a> {
@@ -78,7 +77,6 @@ async fn main() -> surrealdb::Result<()> {
         .query("SELECT marketing, count() FROM type::table($table) GROUP BY marketing")
         .bind(("table", "person"))
         .await?;
-    //dbg!(groups);
 
     Ok(())
 }
