@@ -1,0 +1,15 @@
+[package]
+name = "surrembed"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.17", features = ["derive"] }
+colored = "2.1.0"
+serde = { version = "1.0.210", features = ["derive"] }
+surrealdb = { version = "1.5.4", features = ["kv-rocksdb"] }
+tokio = { version = "1.40.0", features = ["macros", "rt-multi-thread"] }
+
+[profile.release]
+lto=true
+opt-level="z"
